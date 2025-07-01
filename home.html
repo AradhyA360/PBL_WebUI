@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online Grocery Store - Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div>
+        <strong><a href="/index.html">Grocery Store</a></strong>
+      </div>
+      <div>
+        <a href="home.html">Home</a>
+        <a href="profile.html">My Profile</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Logout</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Hello Customer, Welcome to Online Grocery Store</h2>
+
+      <div class="product-list">
+        <div class="product">
+          <h3>Apple</h3>
+          <p>Price: ₹120/kg</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product">
+          <h3>Milk</h3>
+          <p>Price: ₹60/litre</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product">
+          <h3>Rice</h3>
+          <p>Price: ₹80/kg</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .product-list {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .product {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 15px;
+        width: 200px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </body>
+</html>

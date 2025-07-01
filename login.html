@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Grocery Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div>
+        <strong><a href="/index.html">Grocery Store</a></strong>
+      </div>
+      <div>
+        <a href="register.html">Register</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Customer Login</h2>
+      <label for="custId">Customer ID</label>
+      <input type="text" id="custId" />
+
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" maxlength="30" />
+
+      <button onclick="loginUser()">Login</button>
+      <div id="loginMessage" class="success-message"></div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>
