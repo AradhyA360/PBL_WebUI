@@ -11,9 +11,6 @@
       <div>
         <strong><a href="/index.html">Grocery Store</a></strong>
       </div>
-      <div>
-        <a href="register.html">Register</a>
-      </div>
     </nav>
 
     <div class="container">
@@ -25,6 +22,10 @@
       <input type="password" id="loginPassword" maxlength="30" />
 
       <button onclick="loginUser()">Login</button>
+
+      <button onclick="window.location.href='register.html'">
+        New Customer? Register!
+      </button>
       <div id="loginMessage" class="success-message"></div>
     </div>
 
