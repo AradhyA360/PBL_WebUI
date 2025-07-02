@@ -26,7 +26,9 @@ function registerUser(event) {
   const password = document.getElementById("password").value.trim();
   const address = document.getElementById("address").value.trim();
   const contact = document.getElementById("contact").value.trim();
+  const popup = document.getElementById("popupContainer");
 
+  // 🔍 Validation checks
   if (!name || !validateName(name)) {
     alert("Customer Name must have alphabets only and must not be blank.");
     return;
@@ -48,33 +50,44 @@ function registerUser(event) {
     return;
   }
 
-  const custId = generateId();
+  // 🔒 Prevent registration if already registered
+  const existingUser = JSON.parse(localStorage.getItem("registeredUser"));
+  if (existingUser && existingUser.email === email) {
+    popup.style.display = "block";
+    popup.innerHTML = `
+      <h3>Registration Failed</h3>
+      <p>You are already registered with this email.</p>
+      <p><a href="login.html">Click here to Login</a></p>
+    `;
+    return;
+  }
 
-  // Save to localStorage
+  // ✅ Register user
+  const custId = generateId();
   const userData = {
     customerId: custId,
     name: name,
     email: email,
+    password: password,
     address: address,
     contact: contact,
   };
   localStorage.setItem("registeredUser", JSON.stringify(userData));
 
-  // Reset form and disable button
+  // Reset form and disable register button
   document.getElementById("registerForm").reset();
   document.getElementById("registerBtn").disabled = true;
 
-  // Show popup acknowledgement
-  const popup = document.getElementById("popupContainer");
+  // ✅ Show acknowledgment popup with redirect timer
+  let countdown = 10;
   popup.style.display = "block";
-  let countdown = 60;
   popup.innerHTML = `
-                <h3>Registration Successful!</h3>
-                <p><strong>Customer ID:</strong> ${custId}</p>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p>Redirecting to login page in <span id="timer">${countdown}</span> seconds...</p>
-            `;
+    <h3>Registration Successful!</h3>
+    <p><strong>Customer ID:</strong> ${custId}</p>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p>Redirecting to login page in <span id="timer">${countdown}</span> seconds...</p>
+  `;
 
   const interval = setInterval(() => {
     countdown--;

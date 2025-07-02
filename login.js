@@ -1,30 +1,32 @@
-function loginUser() {
-  const custId = document.getElementById("custId").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-  const messageDiv = document.getElementById("loginMessage");
+function togglePassword() {
+  const pwdInput = document.getElementById("loginPassword");
+  pwdInput.type = pwdInput.type === "password" ? "text" : "password";
+}
 
-  if (!custId && !password) {
-    messageDiv.innerHTML = "ID/password not valid";
-    messageDiv.style.color = "red";
+function loginUser(event) {
+  event.preventDefault();
+
+  const enteredId = document.getElementById("custId").value.trim();
+  const enteredPassword = document.getElementById("loginPassword").value.trim();
+  const popup = document.getElementById("loginPopup");
+
+  const user = JSON.parse(localStorage.getItem("registeredUser"));
+
+  if (!user) {
+    popup.innerHTML = `<h3>Error</h3><p>No user registered yet. Please register first.</p>`;
+    popup.style.display = "block";
     return;
   }
 
-  if (!custId.startsWith("CUST")) {
-    messageDiv.innerHTML = "ID not valid";
-    messageDiv.style.color = "red";
-    return;
+  if (enteredId === user.customerId && enteredPassword === user.password) {
+    document.getElementById("loginMessage").innerHTML =
+      "Login Successful. Redirecting...";
+    document.getElementById("loginMessage").style.color = "green";
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 1000);
+  } else {
+    popup.innerHTML = `<h3>Login Failed</h3><p>Invalid ID or Password. Please try again.</p>`;
+    popup.style.display = "block";
   }
-
-  if (password.length < 5) {
-    messageDiv.innerHTML = "Password not valid";
-    messageDiv.style.color = "red";
-    return;
-  }
-
-  messageDiv.innerHTML = "Login Successful. Redirecting...";
-  messageDiv.style.color = "green";
-
-  setTimeout(() => {
-    window.location.href = "home.html";
-  }, 1000);
 }

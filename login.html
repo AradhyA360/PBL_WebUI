@@ -9,26 +9,36 @@
   <body>
     <nav>
       <div>
-        <strong><a href="/index.html">Grocery Store</a></strong>
+        <strong><a href="index.html">Grocery Store</a></strong>
       </div>
     </nav>
 
     <div class="container">
       <h2>Customer Login</h2>
-      <label for="custId">Customer ID</label>
-      <input type="text" id="custId" />
+      <form onsubmit="loginUser(event)">
+        <label for="custId">Customer ID</label>
+        <input type="text" id="custId" />
 
-      <label for="loginPassword">Password</label>
-      <input type="password" id="loginPassword" maxlength="30" />
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" maxlength="30" />
 
-      <button onclick="loginUser()">Login</button>
+        <div class="toggle-password">
+          <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+          <label for="showPassword">Show Password</label>
+        </div>
 
-      <button onclick="window.location.href='register.html'">
-        New Customer? Register!
-      </button>
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="login-link">
+        <p>New User?</p>
+        <a href="register.html">Click here to Register</a>
+      </div>
+
       <div id="loginMessage" class="success-message"></div>
     </div>
 
+    <div id="loginPopup" class="popup" style="display: none"></div>
     <script src="login.js"></script>
   </body>
 </html>
