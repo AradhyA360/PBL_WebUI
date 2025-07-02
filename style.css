@@ -10,7 +10,7 @@ body {
 }
 
 nav {
-  background-color: #27ae60;
+  background-color: orangered;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -38,7 +38,7 @@ nav a {
 }
 
 h2 {
-  color: #27ae60;
+  color: #eaa941;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -77,6 +77,29 @@ button:hover {
   text-align: center;
   margin-top: 20px;
   font-weight: bold;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e0ffe0;
+  border: 2px solid #2ecc71;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  text-align: center;
+}
+
+.popup h3 {
+  color: #2ecc71;
+  margin-bottom: 10px;
+}
+
+.popup p {
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
