@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment - Grocery Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div>
+        <strong><a href="index.html">Grocery Store</a></strong>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Choose Your Payment Method</h2>
+      <div class="payment-options">
+        <div class="option" onclick="selectOption(this, 'COD')">
+          <img src="images/cod.png" alt="COD" />
+          <p>Cash on Delivery (COD)</p>
+        </div>
+        <div class="option" onclick="selectOption(this, 'Paytm')">
+          <img src="images/paytm.png" alt="Paytm" />
+          <p>Paytm</p>
+        </div>
+        <div class="option" onclick="selectOption(this, 'GPay')">
+          <img src="images/gpay.png" alt="GPay" />
+          <p>Google Pay (GPay)</p>
+        </div>
+        <div class="option" onclick="selectOption(this, 'PhonePe')">
+          <img src="images/phonepe.png" alt="PhonePe" />
+          <p>PhonePe</p>
+        </div>
+      </div>
+      <button onclick="proceedToPay()">Proceed to Pay</button>
+
+      <div id="confirmationBox" class="confirmation"></div>
+    </div>
+
+    <script src="payment.js"></script>
+  </body>
+</html>
